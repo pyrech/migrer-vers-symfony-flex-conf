@@ -1,0 +1,230 @@
+<!DOCTYPE HTML>
+<html lang="fr">
+<head>
+	<title>Migrer vers Symfony Flex</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=792, user-scalable=no">
+	<meta http-equiv="x-ua-compatible" content="ie=edge">
+	<link rel="stylesheet" href="shower/themes/ribbon/styles/screen.css">
+	<link rel="stylesheet" href="styles/prism.css" />
+	<link rel="stylesheet" href="styles/custom.css">
+</head>
+<body class="list">
+
+	<header class="caption">
+		<h1>Migrer vers Symfony Flex</h1>
+		<p>SfPot Paris - Loïck Piera - <span class="date">août 2017</span></p>
+	</header>
+
+	<section class="slide cover coverpage" id="coverpage"><div>
+		<div class="covertitle">
+			<h2>Migrer vers Symfony Flex</h2>
+		</div>
+		<img src="covers/bricolage.jpg" />
+	</div></section>
+
+	<section class="slide"><div>
+		<h2>Coucou, je suis Loïck Piera</h2>
+		<ul style="margin-bottom: 25px">
+			<li>Expert Trotinette et développeur Web chez <img src="pictures/logo.svg" style="height:1em; vertical-align: text-bottom;"></li>
+			<li>Bidouilleur d'ascenseur</li>
+			<li style="list-style-type: none;"><img src="pictures/twitter.png" style="width: 20px"> <a href="https://twitter.com/pyrech">@pyrech</a></li>
+		</ul>
+		<img src="pictures/merlin-trotinette.png" style="height: 350px; position: absolute; bottom: 0; right: 50px;" />
+	</div></section>
+
+	<section class="slide"><div>
+		<h2>Le patient : Slack Secret Santa</h2>
+		<div>
+			<ul style="margin-bottom: 25px">
+				<li><a href="https://slack-secret-santa.herokuapp.com/">https://slack-secret-santa.herokuapp.com/</a></li>
+				<li><a href="https://github.com/jolicode/slack-secret-santa/">https://github.com/jolicode/slack-secret-santa</a></li>
+			</ul>
+			<div style="float: left; width: 49%">
+				<img src="pictures/slack-secret-santa.png" alt="Slack Secret Santa" />
+			</div>
+			<div style="float: right; width: 49%">
+				<img src="pictures/slack-message.png" alt="Slack private message" />
+			</div>
+		</div>
+	</div></section>
+
+	<section class="slide"><div>
+		<h2>De multiple opérations, toujours à la pointe</h2>
+		<div>
+			<ul style="margin-bottom: 25px">
+				<li>Au commencement : Script PHP qui fait un random</li>
+				<li>8 novembre 2015 : Intégration à Slack</li>
+				<li>10 novembre 2015 : Symfony 2.8 Dev + micro kernel</li>
+				<li>17 novembre 2015 : Symfony 2.8 Beta + autowiring</li>
+				<li>23 octobre 2016 : Symfony 3.1</li>
+				<li>18 juin 2017 : Symfony 3.3 + flex</li>
+			</ul>
+		</div>
+	</div></section>
+
+	<section class="slide cover black" style="text-align: center;"><div>
+		<img src="pictures/symfony-flex.png" style="width: 60%; position: relative;" />
+	</div></section>
+
+	<section class="slide"><div>
+		<h2>Symfony Flex, kezako ?</h2>
+		<ul>
+			<li>Plugin Composer</li>
+			<li>Automatise l'installation de package / bundle</li>
+			<li class="next">Requiert <strong>PHP 7.1</strong> et la <strong>structure de Symfony 4</strong></li>
+			<li class="next">Disponible en alpha dés Symfony 3.3</li>
+		</ul>
+	</div></section>
+
+	<section class="slide"><div>
+		<h2>Les recipes Flex</h2>
+		<ul>
+			<li>Définit une configuration par défaut
+				<ul style="font-size: 0.8em">
+					<li>Bundle(s) à instancier</li>
+					<li>Fichiers (config, routing ou autre) à importer</li>
+					<li>Paramètre à rajouter dans le DIC</li>
+					<li>Entrées à rajouter dans .gitignore, .env, Makefile, etc</li>
+					<li>Tâche(s) à lancer après l'install</li>
+				</ul>
+			</li>
+			<li>Système d'alias et de "pack" : <code class="language-shell" style="font-size: 0.8em;">composer req orm</code></li>
+		</ul>
+	</div></section>
+
+	<section class="slide"><div>
+		<h2>Nouvelle directory structure de Sf 4</h2>
+		<ul style="font-size: 0.7em">
+			<li>/app/AppKernel.php => /src/Kernel.php</li>
+			<li class="next">/app/config/parameters.yml => /.env
+				<img class="next" src="pictures/fabpot-env-vars.png" />
+			</li>
+		</ul>
+	</div></section>
+
+	<section class="slide"><div>
+		<h2>Nouvelle directory structure de Sf 4</h2>
+		<ul style="font-size: 0.7em">
+			<li>/app/AppKernel.php => /src/Kernel.php</li>
+			<li><del>/app/config/parameters.yml => /.env</del></li>
+			<li class="next">/app/config/ => /config/{packages/, routes/, routes.yaml, services.yaml}</li>
+			<li class="next">/app/resources/{assets, translations}/ => /{assets, translations}/</li>
+			<li class="next">/app/resources/views/ => /templates/</li>
+			<li class="next">/src/{App, …}Bundle/ => /src/</li>
+			<li class="next">/web/* => /public/*</li>
+			<li class="next">/web/app_*.php => /public/index.php</li>
+		</ul>
+	</div></section>
+
+	<section class="slide cover"><div>
+		<div class="covertitle">
+			<h2>C'est partiiii</h2>
+		</div>
+		<img src="covers/.jpg" />
+	</div></section>
+
+	<section class="slide"><div>
+		<h2>:'(</h2>
+		<ul>
+			<li>Pas d'outil de migration vers la nouvelle structure</li>
+			<li><code class="language-shell" style="font-size: 0.8em;">composer require symfony/flex</code> ne suffit pas<br />
+		</ul>
+	</div></section>
+
+	<section class="slide"><div>
+		<h2>Procédure - étape 1</h2>
+		<ul>
+			<li>Démarrer une nouvelle application<br />
+				<code class="language-shell">composer create-project symfony/skeleton</code></li>
+			<li class="next">Réimporter vos <code class="language-javascript">"require"</code> et <code class="language-javascript">"require-dev"</code> dans le composer.json du nouveau projet</li>
+			<li class="next"><code class="language-shell">composer install</code> pour générer la config</li>
+		</ul>
+	</div></section>
+
+	<section class="slide"><div>
+		<h2>Procédure - étape 2 (boring)</h2>
+		<ul>
+			<li>Checker les fichiers générés dans config/packages/</li>
+			<li class="next">Réintégrer la configuration de app/config/config_*.yml</li>
+			<li class="next">Déplacer les paramètres de app/config/parameters.yml vers config/services.yaml ou .env</li>
+		</ul>
+	</div></section>
+
+	<section class="slide"><div>
+		<h2>Procédure - étape 3</h2>
+		<ul>
+			<li>Réimporter le code PHP (<small style="font-size: 0.8em;">plus de AppBundle !</small>) : <small style="font-size: 0.8em;">namespace à modifier</small></li>
+			<li class="next">Réimporter les templates, traductions, etc.</li>
+			<li class="next">Réappliquer les autres modifs requises par votre application (app_dev.php par exemple)</li>
+		</ul>
+	</div></section>
+
+	<section class="slide"><div>
+		<h2>Nouveautés du DIC dans SF 3.3</h2>
+		<ul>
+			<li>Cf le talk "Les nouveautés dans l'injection de dépendances avec Symfony 3.3" de Christophe Coevoet</li>
+		</ul>
+	</div></section>
+
+	<section class="slide cover"><div>
+		<img src="pictures/dic-config.png" alt="Configuration du DIC" />
+	</div></section>
+
+	<section class="slide"><div>
+		<h2>C'est un peu magique..?</h2>
+		<ul>
+			<li>TODO</li>
+		</ul>
+	</div></section>
+
+	<section class="slide"><div>
+		<h2>Flex est pas encore stable ¯\_(ツ)_/¯</h2>
+		<img src="pictures/alpha.png" alt="Alpha" />
+	</div></section>
+
+	<section class="slide"><div>
+		<h2>Flex est pas encore stable ¯\_(ツ)_/¯</h2>
+		<img src="pictures/flex-changes.png" alt="Changement Flex" />
+		<ul>
+			<li>public/ s'appelait web/</li>
+			<li>config/ s'appelait etc/</li>
+		</ul>
+	</div></section>
+
+	<section class="slide"><div>
+		<h2>Flex est pas encore stable ¯\_(ツ)_/¯</h2>
+		<img src="pictures/server-down.png" alt="Serveur down" />
+	</div></section>
+
+	<section class="slide"><div>
+		<h2>Protips</h2>
+		<ul>
+			<li>Ne pas supprimer un fichier de config généré : sera recréé au prochain run de Flex</li>
+			<li>Surcharge des templates => src/Resources/views</li>
+		</ul>
+	</div></section>
+
+	<section class="slide"><div>
+		<h2>Ressources</h2>
+		<ul>
+			<li><a href="https://symfony.com/doc/current/setup/flex.html">https://symfony.com/doc/current/setup/flex.html</a></li>
+		</ul>
+	</div></section>
+
+	<section class="slide cover" id="end"><div>
+		<img src="covers/jolicode.jpg" />
+		<h2>
+			Loïck<br />
+			<a href="https://jolicode.com">https://jolicode.com</a>
+		</h2>
+		<p style="background-color: black;">Questions ?</p>
+	</div></section>
+
+	<div class="progress"><div></div></div>
+	<script src="shower/shower.min.js"></script>
+	<script src="styles/prism.js"></script>
+	<script src="styles/jquery-2.1.1.min.js"></script>
+	<script src="styles/progress.js"></script>
+</body>
+</html>
