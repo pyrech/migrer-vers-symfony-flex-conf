@@ -219,6 +219,12 @@ img {
 
 @page{margin:0;size:1024px 640px}
 
+.full .progressbar {
+    height: auto;
+    top: auto;
+    bottom: 0;
+    padding-top: 0;
+}
 .full .progress div{}
 .full .progress div[style$='100%;']{padding-left:10px}
 
