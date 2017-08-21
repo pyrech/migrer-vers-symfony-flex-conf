@@ -289,5 +289,9 @@ img {
 
 code.path {
     font-size: 0.8em;
-    background-color: #9FFCFF;
+    background-color: #9ddcfb;
+}
+code.language-shell {
+    font-size: 0.8em;
+    background-color: #D1EFFE !important;
 }

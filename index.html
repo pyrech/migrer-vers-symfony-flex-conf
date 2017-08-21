@@ -19,7 +19,7 @@
 	<section class="slide cover coverpage" id="coverpage"><div>
 		<div class="covertitle">
 			<h2>Migrer vers Symfony Flex</h2>
-			<small style="font-size: 0.8em">Bienvenue dans le futur</small>
+			<small style="font-size: 0.7em">Bienvenue dans le futur</small>
 		</div>
 		<img src="covers/futur.jpg" />
 	</div></section>
@@ -29,7 +29,8 @@
 		<ul style="margin-bottom: 25px">
 			<li>Expert Trotinette et développeur Web chez <img src="pictures/logo.svg" style="height:1em; vertical-align: text-bottom;"></li>
 			<li>Bidouilleur d'ascenseur</li>
-			<li style="list-style-type: none;"><img src="pictures/twitter.png" style="width: 20px"> <a href="https://twitter.com/pyrech">@pyrech</a></li>
+			<li style="list-style-type: none;"><img src="pictures/twitter.png" style="width: 20px"> <a href="https://twitter.com/pyrech">pyrech</a></li>
+			<li style="list-style-type: none;"><img src="pictures/github.png" style="width: 20px"> <a href="https://github.com/pyrech">pyrech</a></li>
 		</ul>
 		<img src="pictures/merlin-trotinette.png" style="height: 350px; position: absolute; bottom: 0; right: 50px;" />
 	</div></section>
@@ -41,26 +42,11 @@
 	<section class="slide"><div>
 		<h2>Symfony Flex, kezako ?</h2>
 		<ul>
-			<li>Plugin Composer</li>
-			<li>Automatise l'installation de package / bundle</li>
+			<li>Nouvelle façon de créer une application Symfony</li>
+			<li class="next">Plugin Composer</li>
+			<li class="next">Automatise l'installation de package / bundle</li>
 			<li class="next">Requiert <strong>PHP 7.1</strong> et la <strong>structure de Symfony 4</strong></li>
-			<li class="next">Disponible en alpha dès Symfony 3.3</li>
-		</ul>
-	</div></section>
-
-	<section class="slide"><div>
-		<h2>Une recipe Flex</h2>
-		<ul>
-			<li>Définit une configuration par défaut
-				<ul style="font-size: 0.8em">
-					<li>Bundle(s) à instancier</li>
-					<li>Fichiers (config, routing ou autre) à importer</li>
-					<li>Paramètre à rajouter dans le DIC</li>
-					<li>Entrées à rajouter dans .gitignore, .env, Makefile, etc</li>
-					<li>Tâche(s) à lancer après l'install</li>
-				</ul>
-			</li>
-			<li>Système d'alias et de "pack" : <code class="language-shell" style="font-size: 0.8em;">composer req orm</code></li>
+			<li class="next">Disponible dès Symfony 3.3</li>
 		</ul>
 	</div></section>
 
@@ -97,6 +83,65 @@
 		</div>
 	</div></section>
 
+	<section class="slide"><div>
+		<h2>Objectifs de Flex</h2>
+		<ul>
+			<li>Faciliter l'ajout/la suppression de dépendances</li>
+			<li>Avoir une configuration par défaut qui fonctionne immédiatement</li>
+		</ul>
+	</div></section>
+
+	<section class="slide"><div>
+		<h2>Installation d'un bundle : sans Flex</h2>
+		<ul>
+			<li><code class="language-shell">composer require mon-package</code></li>
+			<li class="next">Instancier le(s) bundle(s) dans le Kernel</li>
+			<li class="next">Créer la configuration dans <code class="path">app/config/config.yml</code></li>
+			<li class="next">Importer le routing dans <code class="path">app/config/routing.yml</code></li>
+		</ul>
+	</div></section>
+
+	<section class="slide"><div>
+		<h2>Installation d'un bundle : avec Flex</h2>
+		<ul>
+			<li><code class="language-shell">composer require mon-package</code></li>
+			<li><del>Instancier le(s) bundle(s) dans le Kernel</del></li>
+			<li><del>Créer la configuration dans <code class="path">app/config/config.yml</code></del></li>
+			<li><del>Importer le routing dans <code class="path">app/config/routing.yml</code></del></li>
+		</ul>
+	</div></section>
+
+	<section class="slide"><div>
+		<h2>Une recipe Flex</h2>
+		<ul>
+			<li>Définit une configuration par défaut
+				<ul style="font-size: 0.8em">
+					<li>Bundle(s) à instancier</li>
+					<li>Fichiers (config, routing ou autre) à créer</li>
+					<li>Paramètre à rajouter dans le DIC</li>
+					<li>Entrées à rajouter dans <code class="path">.gitignore</code>, <code class="path">.env</code>, <code class="path">Makefile</code>, etc</li>
+					<li>Tâche(s) à lancer après l'install</li>
+				</ul>
+			</li>
+			<li>Système d'alias et de "pack" : <code class="language-shell">composer req orm</code></li>
+		</ul>
+	</div></section>
+
+	<section class="slide"><div>
+		<h2>Recipe pour doctrine/doctrine-bundle</h2>
+		<div style="float: left; width: 24%; margin-bottom: 50px;">
+			<img src="pictures/doctrine-recipe-arbo.png" alt="Arborescence d'un recipe" />
+		</div>
+		<div style="float: right; width: 75%; margin-bottom: 50px;">
+			<img src="pictures/doctrine-recipe-manifest.png" alt="Manifest d'un recipe" />
+		</div>
+	</div></section>
+
+	<!--<section class="slide"><div>-->
+		<!--<h2>Contenu du fichier bundles.php</h2>-->
+		<!--<img src="pictures/bundles.php.png" alt="Contenu du fichier bundles.php" />-->
+	<!--</div></section>-->
+
 	<section class="slide cover"><div>
 		<div class="covertitle">
 			<h2>C'est partiiii</h2>
@@ -108,7 +153,7 @@
 		<h2>:'(</h2>
 		<ul>
 			<li>Pas d'outil de migration vers la nouvelle structure</li>
-			<li><code class="language-shell" style="font-size: 0.8em;">composer require symfony/flex</code> ne suffit pas<br />
+			<li><code class="language-shell">composer require symfony/flex</code> ne suffit pas<br />
 		</ul>
 	</div></section>
 
@@ -161,7 +206,9 @@
 	<section class="slide"><div>
 		<h2>C'est un peu magique..?</h2>
 		<ul>
-			<li>TODO</li>
+			<li>Plus besoin de configurer ses dépendances</li>
+			<li>Plus besoin de déclarer soi-même ses services</li>
+			<li class="next">On s'y fait très vite :D #faignants</li>
 		</ul>
 	</div></section>
 
@@ -185,10 +232,19 @@
 	</div></section>
 
 	<section class="slide"><div>
+		<h2>Release stable avec Symfony 3.4 / 4.0</h2>
+		<ul>
+			<li>Aucune obligation de migrer tout de suite</li>
+			<li>Aucune obligation d'utiliser Symfony Flex</li>
+		</ul>
+	</div></section>
+
+	<section class="slide"><div>
 		<h2>Protips</h2>
 		<ul>
 			<li>Ne pas supprimer un fichier de config généré : sera recréé au prochain run de Flex</li>
-			<li>Surcharge des templates => src/Resources/views</li>
+			<li>Surcharge des templates => <code class="path">src/Resources/views</code></li>
+			<li>Traductions YAML : utiliser l'extension .yml</li>
 		</ul>
 	</div></section>
 
