@@ -286,3 +286,8 @@ img {
   -webkit-animation: blink 1s step-start 0s infinite;
   color: red;
 }
+
+code.path {
+    font-size: 0.8em;
+    background-color: #9FFCFF;
+}

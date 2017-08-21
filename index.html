@@ -19,8 +19,9 @@
 	<section class="slide cover coverpage" id="coverpage"><div>
 		<div class="covertitle">
 			<h2>Migrer vers Symfony Flex</h2>
+			<small style="font-size: 0.8em">Bienvenue dans le futur</small>
 		</div>
-		<img src="covers/bricolage.jpg" />
+		<img src="covers/futur.jpg" />
 	</div></section>
 
 	<section class="slide"><div>
@@ -66,8 +67,8 @@
 	<section class="slide"><div>
 		<h2>Nouvelle directory structure de Sf 4</h2>
 		<ul style="font-size: 0.7em">
-			<li>/app/AppKernel.php => /src/Kernel.php</li>
-			<li class="next">/app/config/parameters.yml => /.env
+			<li><code class="path">app/AppKernel.php</code> => <code class="path">src/Kernel.php</code></li>
+			<li class="next"><code class="path">app/config/parameters.yml</code> => <code class="path">.env</code>
 				<img class="next" src="pictures/fabpot-env-vars.png" />
 			</li>
 		</ul>
@@ -76,22 +77,31 @@
 	<section class="slide"><div>
 		<h2>Nouvelle directory structure de Sf 4</h2>
 		<ul style="font-size: 0.7em">
-			<li>/app/AppKernel.php => /src/Kernel.php</li>
-			<li><del>/app/config/parameters.yml => /.env</del></li>
-			<li class="next">/app/config/ => /config/{packages/, routes/, routes.yaml, services.yaml}</li>
-			<li class="next">/app/resources/{assets, translations}/ => /{assets, translations}/</li>
-			<li class="next">/app/resources/views/ => /templates/</li>
-			<li class="next">/src/{App, …}Bundle/ => /src/</li>
-			<li class="next">/web/* => /public/*</li>
-			<li class="next">/web/app_*.php => /public/index.php</li>
+			<li><code class="path">app/AppKernel.php</code> => <code class="path">src/Kernel.php</code></li>
+			<li><del><code class="path">app/config/parameters.yml</code> => <code class="path">.env</code></del></li>
+			<li class="next"><code class="path">app/config/*</code> => <code class="path">config/*</code></li>
+			<li class="next"><code class="path">app/resources/{assets, translations}/</code> => <code class="path">{assets, translations}/</code></li>
+			<li class="next"><code class="path">app/resources/views/</code> => <code class="path">templates/</code></li>
+			<li class="next"><code class="path">src/{App, …}Bundle/</code> => <code class="path">src/</code></li>
+			<li class="next"><code class="path">web/*</code> => <code class="path">public/*</code></li>
+			<li class="next"><code class="path">web/app_*.php</code> => <code class="path">public/index.php</code></li>
 		</ul>
+	</div></section>
+
+	<section class="slide" style="background-color: #3C3F41;"><div>
+		<div style="float: left; width: 49%; margin-bottom: 50px;">
+			<img src="pictures/arbo1.png" alt="Arborescence type" />
+		</div>
+		<div style="float: right; width: 49%; margin-bottom: 50px;">
+			<img src="pictures/arbo2.png" alt="Arborescence type" />
+		</div>
 	</div></section>
 
 	<section class="slide cover"><div>
 		<div class="covertitle">
 			<h2>C'est partiiii</h2>
 		</div>
-		<img src="covers/.jpg" />
+		<img src="covers/future-start-button.jpg" style="height: 100%; width: 100%; object-fit: contain;" />
 	</div></section>
 
 	<section class="slide"><div>
@@ -115,9 +125,9 @@
 	<section class="slide"><div>
 		<h2>Procédure - étape 2 (boring)</h2>
 		<ul>
-			<li>Checker les fichiers générés dans config/packages/</li>
-			<li class="next">Réintégrer la configuration de app/config/config_*.yml</li>
-			<li class="next">Déplacer les paramètres de app/config/parameters.yml vers config/services.yaml ou .env</li>
+			<li>Checker les fichiers générés dans <code class="path">config/packages/</code></li>
+			<li class="next">Réintégrer la conf de <code class="path">app/config/config_*.yml</code></li>
+			<li class="next">Déplacer les parameters de <code class="path">app/config/parameters.yml</code> vers <code class="path">config/services.yaml</code> ou <code class="path">.env</code></li>
 		</ul>
 	</div></section>
 
@@ -137,8 +147,15 @@
 		</ul>
 	</div></section>
 
+	<section class="slide cover" style="background-color: white;"><div>
+		<img src="pictures/dic-config.png" alt="Configuration du DIC" style="position: relative;" />
+	</div></section>
+
 	<section class="slide cover"><div>
-		<img src="pictures/dic-config.png" alt="Configuration du DIC" />
+		<div class="covertitle">
+			<h2>"Retour d'expérience"</h2>
+		</div>
+		<img src="covers/delorean.jpg" style="height: 100%; width: 100%; object-fit: contain;" />
 	</div></section>
 
 	<section class="slide"><div>
@@ -199,12 +216,12 @@
 	</div></section>
 
 	<section class="slide cover" id="end"><div>
-		<img src="covers/jolicode.jpg" />
+		<img src="covers/end.jpg" />
 		<h2>
 			Loïck<br />
 			<a href="https://jolicode.com">https://jolicode.com</a>
 		</h2>
-		<p style="background-color: black;">Questions ?</p>
+		<p style="font-size: 2em;">Questions ?</p>
 	</div></section>
 
 	<div class="progress"><div></div></div>
