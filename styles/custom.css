@@ -98,7 +98,10 @@ img {
 }
 
 .slide.cover, .slide.shout{ z-index: 100002 }
-
+.slide > div {
+    padding-top: 80px;
+    height: 560px;
+}
 .list .slide>div:before, .full .slide>div:before {
     background: url(../pictures/jolicode.svg) left 53% no-repeat;
     bottom: 0;
